@@ -6,7 +6,6 @@
         "ghcr.io/devcontainers/features/common-utils:2": {
             "installZsh": true
         },
-        // Aquí instalamos MariaDB automáticamente
         "ghcr.io/devcontainers-contrib/features/mariadb-apt-get:1": {}
     },
     "postCreateCommand": "sudo service mariadb start && sudo mariadb -e \"CREATE DATABASE IF NOT EXISTS dev_db;\"",
