@@ -1,13 +1,15 @@
 {
     "name": "MariaDB Environment",
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspaces/practicaTechnoB",
     "features": {
         "ghcr.io/devcontainers/features/sshd:1": {},
         "ghcr.io/devcontainers/features/common-utils:2": {
             "installZsh": true
         }
     },
-    "postCreateCommand": "apt-get update && apt-get install -y mariadb-server && sudo service mariadb start && sudo mariadb -e \"CREATE DATABASE IF NOT EXISTS dev_db;\"",
+    "postCreateCommand": "sleep 5 && mysql -h mariadb -u root -proot -e \"CREATE DATABASE IF NOT EXISTS dev_db;\"",
     "customizations": {
         "vscode": {
             "extensions": [
