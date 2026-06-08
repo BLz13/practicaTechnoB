@@ -5,10 +5,9 @@
         "ghcr.io/devcontainers/features/sshd:1": {},
         "ghcr.io/devcontainers/features/common-utils:2": {
             "installZsh": true
-        },
-        "ghcr.io/devcontainers-contrib/features/mariadb-apt-get:1": {}
+        }
     },
-    "postCreateCommand": "sudo service mariadb start && sudo mariadb -e \"CREATE DATABASE IF NOT EXISTS dev_db;\"",
+    "postCreateCommand": "apt-get update && apt-get install -y mariadb-server && sudo service mariadb start && sudo mariadb -e \"CREATE DATABASE IF NOT EXISTS dev_db;\"",
     "customizations": {
         "vscode": {
             "extensions": [
