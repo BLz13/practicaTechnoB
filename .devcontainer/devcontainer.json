@@ -1,21 +1,11 @@
 {
-    "name": "MariaDB Environment",
-    "dockerComposeFile": "docker-compose.yml",
-    "service": "app",
-    "workspaceFolder": "/workspaces/practicaTechnoB",
-    "features": {
-        "ghcr.io/devcontainers/features/sshd:1": {},
-        "ghcr.io/devcontainers/features/common-utils:2": {
-            "installZsh": true
-        }
-    },
-    "postCreateCommand": "sleep 5 && mysql -h mariadb -u root -proot -e \"CREATE DATABASE IF NOT EXISTS dev_db;\"",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "mtxr.sqltools",
-                "mtxr.sqltools-driver-mysql"
-            ]
-        }
+  "name": "MariaDB Dev Environment",
+  "image": "://microsoft.com",
+  "mounts": [
+    {
+      "type": "bind",
+      "source": "${localWorkspaceFolder}/.db-data",
+      "target": "/var/lib/mysql"
     }
+  ]
 }
