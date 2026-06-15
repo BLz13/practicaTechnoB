@@ -1,11 +1,13 @@
 {
   "name": "MariaDB Dev Environment",
-  "image": "://microsoft.com",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "mounts": [
     {
       "type": "bind",
-      "source": "${localWorkspaceFolder}/.db-data",
+      "source": "${containerWorkspaceFolder}/.db-data",
       "target": "/var/lib/mysql"
     }
-  ]
+  ],
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "forwardPorts": [3306]
 }
